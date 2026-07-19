@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+struct Vehicle {
+    char make[20];
+    int years;
+    char colour[20];
+};
+
+struct Car {
+    struct Vehicle v;
+    char model[20];
+    int capacity;
+};
+
+struct Bike {
+    struct Vehicle v;
+    char type[20];
+    int mileage;
+};
+
+int main() {
+    struct Car c;
+    struct Bike b;
+
+    printf("--- Car details ---\n");
+    printf("Enter make, years, colour: ");
+    scanf("%s %d %s", c.v.make, &c.v.years, c.v.colour);
+    printf("Enter model and capacity: ");
+    scanf("%s %d", c.model, &c.capacity);
+
+    printf("Car: %s %d %s, Model: %s, Capacity: %d\n", c.v.make, c.v.years, c.v.colour, c.model, c.capacity);
+
+    printf("\n--- Bike details ---\n");
+    printf("Enter make, years, colour: ");
+    scanf("%s %d %s", b.v.make, &b.v.years, b.v.colour);
+    printf("Enter type and mileage: ");
+    scanf("%s %d", b.type, &b.mileage);
+
+    printf("Bike: %s %d %s, Type: %s, Mileage: %d\n", b.v.make, b.v.years, b.v.colour, b.type, b.mileage);
+
+    return 0;
+}
