@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+    float percentage;
+};
+
+struct Manager {
+    struct Employee e;
+    char dept[20];
+    int team;
+    int allowance;
+};
+
+struct Developer {
+    struct Employee e;
+    char project[20];
+    int experience;
+};
+
+float calculate_bonus(struct Employee e) {
+    return e.salary * e.percentage / 100;
+}
+
+int main() {
+    struct Manager m;
+    printf("Enter employee id, name, salary, percentage: ");
+    scanf("%d %s %f %f", &m.e.id, m.e.name, &m.e.salary, &m.e.percentage);
+
+    printf("Enter department, team number, allowance: ");
+    scanf("%s %d %d", m.dept, &m.team, &m.allowance);
+
+    printf("\n==== Employee Details ====\n");
+    printf("ID: %d, Name: %s, Salary: %.2f\n", m.e.id, m.e.name, m.e.salary);
+    printf("Department: %s, Team: %d, Allowance: %d\n", m.dept, m.team, m.allowance);
+    printf("Bonus: %.2f\n", calculate_bonus(m.e));
+
+    return 0;
+}
